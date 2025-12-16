@@ -1,0 +1,78 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.score{
+    margin-top: 20px;
+    font-size: 32px;
+}
+
+.game-board{
+    width: 80%;
+    height: 500px;
+    border-bottom: 15px solid rgb(35, 160, 35);
+    border: 1px solid #333;
+    margin: 20px auto;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(#87CEEB, #E0F6FF);
+}
+
+.mario{
+    width: 130px;
+    position: absolute;
+    bottom: 0;           /* ✔️ NO CHÃO */
+    z-index: 3;
+}
+
+.pipe{
+    position: absolute;
+    bottom: 0;
+    width: 80px;
+    animation: pipe-move 5s linear forwards;
+    z-index: 2;
+}
+
+.mario.jump{
+    animation: jump 900ms ease-out;
+}
+
+.clouds{
+    position: absolute;
+    width: 550px;
+    animation: clouds-animation 15s infinite linear;
+    z-index: 1;
+}
+
+#restart{
+    margin-top: 30px;
+    padding: 12px 25px;
+    font-size: 20px;
+    cursor: pointer;
+    background: #ffcc00;
+    border: none;
+    border-radius: 10px;
+}
+
+@keyframes pipe-move{
+    from{ right: -80px; }
+    to{ right: 100%; }
+}
+
+@keyframes jump{
+    0%   { bottom: 0; }
+    50%  { bottom: 160px; }  /* ALTURA CORRETA */
+    100% { bottom: 0; }
+}
+
+@keyframes clouds-animation{
+    from{ right: -550px; }
+    to{ right: 100%; }
+}
